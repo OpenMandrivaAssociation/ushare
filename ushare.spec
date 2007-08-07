@@ -1,5 +1,5 @@
 %define name ushare
-%define version 0.9.10
+%define version 1.0
 %define release %mkrel 1
 
 Summary: uShare is a UPnP (TM) A/V Media Server
@@ -53,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/ushare.conf
 %{_bindir}/ushare
 %{_datadir}/locale/*/*/*
-%{_mandir}/man1/ushare.1.bz2
+%{_mandir}/man1/ushare.1.*
 %{_sysconfdir}/cron.daily/ushare
 
 
