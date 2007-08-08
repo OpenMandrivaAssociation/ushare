@@ -1,6 +1,6 @@
 %define name ushare
 %define version 1.0
-%define release %mkrel 1
+%define release %mkrel 2 
 
 Summary: uShare is a UPnP (TM) A/V Media Server
 Name: %{name}
