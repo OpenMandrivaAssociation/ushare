@@ -12,6 +12,7 @@ Source2: ushare.crontab
 License: GPL
 Group: Video
 Url: http://ushare.geexbox.org/
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Buildrequires: libupnp-devel >= 1.4.2
 
 %description
