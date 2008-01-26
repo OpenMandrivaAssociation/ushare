@@ -1,6 +1,6 @@
 %define name ushare
-%define version 1.0
-%define release %mkrel 2 
+%define version 1.1a
+%define release %mkrel 1
 
 Summary: uShare is a UPnP (TM) A/V Media Server
 Name: %{name}
@@ -13,7 +13,7 @@ License: GPL
 Group: Video
 Url: http://ushare.geexbox.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Buildrequires: libupnp-devel >= 1.4.2
+Buildrequires: libupnp-devel >= 1.4.2, libdlna-devel
 
 %description
 GeeXboX uShare is able to provide access to both images, videos, music or 
@@ -25,7 +25,7 @@ can't transcode streams to fit the client requirements.
 %setup -q
 
 %build
-%configure
+%configure --enable-dlna
 %make
 
 %install
