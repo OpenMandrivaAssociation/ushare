@@ -25,12 +25,13 @@ can't transcode streams to fit the client requirements.
 %setup -q
 
 %build
-./configure --enable-dlna
+./configure --prefix=$RPM_BUILD_ROOT/usr --sysconfdir=$RPM_BUILD_ROOT/etc --enable-dlna
+perl -pi -e "s|\-L/usr/lib|-L%{_libdir}|g" config.mak
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+make install
 #Installing a better initscript
 rm -rf $RPM_BUILD_ROOT/etc/init.d
 mkdir -p $RPM_BUILD_ROOT/%{_initrddir}
@@ -53,7 +54,7 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/ushare.conf
 %{_bindir}/ushare
 %{_datadir}/locale/*/*/*
-%{_mandir}/man1/ushare.1.*
+#{_mandir}/man1/ushare.1.*
 %{_sysconfdir}/cron.daily/ushare
 
 
