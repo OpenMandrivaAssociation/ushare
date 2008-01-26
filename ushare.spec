@@ -25,8 +25,8 @@ can't transcode streams to fit the client requirements.
 %setup -q
 
 %build
-%configure --enable-dlna
-%make
+./configure --enable-dlna
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
