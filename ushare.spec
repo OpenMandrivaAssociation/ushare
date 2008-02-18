@@ -2,7 +2,7 @@
 %define version 1.1a
 %define release %mkrel 1
 
-Summary: uShare is a UPnP (TM) A/V Media Server
+Summary: UPnP (TM) A/V Media Server
 Name: %{name}
 Version: %{version}
 Release: %{release}
