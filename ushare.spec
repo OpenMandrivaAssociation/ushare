@@ -1,6 +1,6 @@
 %define name ushare
 %define version 1.1a
-%define release %mkrel 4
+%define release %mkrel 5
 
 Summary: UPnP (TM) A/V Media Server
 Name: %{name}
