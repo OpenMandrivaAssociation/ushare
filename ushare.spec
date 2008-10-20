@@ -6,10 +6,10 @@ Summary: UPnP (TM) A/V Media Server
 Name: %{name}
 Version: %{version}
 Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
+Source0: http://ushare.geexbox.org/releases/%{name}-%{version}.tar.bz2
 Source1: %{name}
 Source2: ushare.crontab
-License: GPL
+License: GPLv2+
 Group: Video
 Url: http://ushare.geexbox.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -25,13 +25,16 @@ can't transcode streams to fit the client requirements.
 %setup -q
 
 %build
-./configure --prefix=$RPM_BUILD_ROOT/usr --sysconfdir=$RPM_BUILD_ROOT/etc --enable-dlna
-perl -pi -e "s|\-L/usr/lib|-L%{_libdir}|g" config.mak
+%setup_compile_flags
+./configure --prefix=%{_prefix} --sysconfdir=%{_sysconfdir} --enable-dlna
 make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make install
+%makeinstall_std
+
+%find_lang %name
+
 #Installing a better initscript
 rm -rf $RPM_BUILD_ROOT/etc/init.d
 mkdir -p $RPM_BUILD_ROOT/%{_initrddir}
@@ -48,13 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 %preun
 %_preun_service ushare
 
-%files
+%files -f %name.lang
 %defattr(-,root,root)
 %{_initrddir}/ushare
 %config(noreplace) %{_sysconfdir}/ushare.conf
 %{_bindir}/ushare
-%{_datadir}/locale/*/*/*
-#{_mandir}/man1/ushare.1.*
 %{_sysconfdir}/cron.daily/ushare
-
-
