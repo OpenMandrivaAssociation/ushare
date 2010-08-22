@@ -9,6 +9,7 @@ Release: %{release}
 Source0: http://ushare.geexbox.org/releases/%{name}-%{version}.tar.bz2
 Source1: %{name}
 Source2: ushare.crontab
+Patch0: ushare-1.1a-fix-str-fmt.patch
 License: GPLv2+
 Group: Video
 Url: http://ushare.geexbox.org/
@@ -23,6 +24,7 @@ can't transcode streams to fit the client requirements.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %setup_compile_flags
