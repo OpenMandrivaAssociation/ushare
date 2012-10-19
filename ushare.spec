@@ -13,8 +13,8 @@ Patch0: ushare-1.1a-fix-str-fmt.patch
 License: GPLv2+
 Group: Video
 Url: http://ushare.geexbox.org/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Buildrequires: libupnp-devel >= 1.4.2, libdlna-devel
+Buildrequires: pkgconfig(libupnp)
+Buildrequires: pkgconfig(libdlna)
 
 %description
 GeeXboX uShare is able to provide access to both images, videos, music or 
@@ -32,20 +32,17 @@ can't transcode streams to fit the client requirements.
 make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std
 
 %find_lang %name
 
 #Installing a better initscript
-rm -rf $RPM_BUILD_ROOT/etc/init.d
-mkdir -p $RPM_BUILD_ROOT/%{_initrddir}
+rm -rf %{buildroot}/etc/init.d
+mkdir -p %{buildroot}/%{_initrddir}
 mkdir -p %{buildroot}/etc/cron.daily
-install -m 755 %SOURCE1 $RPM_BUILD_ROOT/%{_initrddir}/ushare
+install -m 755 %SOURCE1 %{buildroot}/%{_initrddir}/ushare
 install -m 755 %SOURCE2 %{buildroot}/etc/cron.daily/ushare
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %post
 %_post_service ushare
@@ -54,7 +51,6 @@ rm -rf $RPM_BUILD_ROOT
 %_preun_service ushare
 
 %files -f %name.lang
-%defattr(-,root,root)
 %{_initrddir}/ushare
 %config(noreplace) %{_sysconfdir}/ushare.conf
 %{_bindir}/ushare
