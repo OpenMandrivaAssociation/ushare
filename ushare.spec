@@ -10,6 +10,10 @@ Source0: http://ushare.geexbox.org/releases/%{name}-%{version}.tar.bz2
 Source1: %{name}
 Source2: ushare.crontab
 Patch0: ushare-1.1a-fix-str-fmt.patch
+Patch1:	01_all_ushare_build_system.patch
+Patch3:	03_all_ushare_mp4_video_mime.patch
+Patch4:	04_all_ushare_upnp_build_fix.patch
+Patch5:	05_all_missing_headers.patch
 License: GPLv2+
 Group: Video
 Url: http://ushare.geexbox.org/
@@ -25,6 +29,10 @@ can't transcode streams to fit the client requirements.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
 
 %build
 %setup_compile_flags
@@ -32,7 +40,6 @@ can't transcode streams to fit the client requirements.
 make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %find_lang %name
