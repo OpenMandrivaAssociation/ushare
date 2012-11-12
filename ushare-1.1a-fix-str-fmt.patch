@@ -1,0 +1,11 @@
+--- src/mime.c.str	2010-08-22 07:51:30.000000000 +0200
++++ src/mime.c	2010-08-22 07:51:40.000000000 +0200
+@@ -144,7 +144,7 @@
+   if (!mime)
+     return NULL;
+ 
+-  sprintf (protocol, mime->mime_protocol);
++  sprintf (protocol, "%s", mime->mime_protocol);
+   strcat (protocol, "*");
+   return strdup (protocol);
+ }
