@@ -1,3 +1,4 @@
+%define debug_package %{nil}
 %define name ushare
 %define version 1.1a
 %define release %mkrel 6

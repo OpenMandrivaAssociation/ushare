@@ -1,0 +1,3 @@
+#!/bin/bash
+#Asking ushare to update its content
+killall -1 ushare
