@@ -1,0 +1,13 @@
+[Unit]
+Description=ushare is UPnP™ A/V Media Server.
+After=syslog.target network.target
+
+[Service]
+Type=simple
+Environment=USHARE_DIR=/srv/ushare
+EnvironmentFile=-/etc/ushare.conf
+PIDFile=/var/run/ushare.pid
+ExecStart=/usr/bin/ushare --cfg=/etc/ushare.conf
+
+[Install]
+WantedBy=multi-user.target
