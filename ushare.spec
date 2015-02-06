@@ -3,7 +3,7 @@
 Summary: UPnP (TM) A/V Media Server
 Name: ushare
 Version: 1.1a
-Release: 8
+Release: 9
 Source0: http://ushare.geexbox.org/releases/%{name}-%{version}.tar.bz2
 Source1: %{name}.service
 Source2: ushare.crontab
