@@ -14,7 +14,7 @@ Patch4:	04_all_ushare_upnp_build_fix.patch
 Patch5:	05_all_missing_headers.patch
 License: GPLv2+
 Group: Video
-Url: http://ushare.geexbox.org/
+Url: https://ushare.geexbox.org/
 Buildrequires: pkgconfig(libupnp)
 Buildrequires: pkgconfig(libdlna)
 
