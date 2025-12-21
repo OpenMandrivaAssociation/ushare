@@ -15,6 +15,11 @@ Patch5:	05_all_missing_headers.patch
 License: GPLv2+
 Group: Video
 Url: https://ushare.geexbox.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 Buildrequires: pkgconfig(libupnp)
 Buildrequires: pkgconfig(libdlna)
 
